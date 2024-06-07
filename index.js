@@ -2,7 +2,6 @@ const express = require("express")
 const mongoose = require("mongoose")
 require("dotenv").config({ path: "./.env" })
 const cors = require("cors")
-const path = require("path")
 
 
 
@@ -12,14 +11,15 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "assets/projectImg")))
+// app.use(express.static(path.join(__dirname, "assets/projectImg")))
+app.use(express.static("assets/projectImg"))
+
 
 mongoose.connect(process.env.MONGO_URL)
 
 
 // routes
 app.use("/api/v1/admin", require("./routes/protectedRoute"))
-
 
 app.use("*", (req, res) => {
     res.status(400).json({
