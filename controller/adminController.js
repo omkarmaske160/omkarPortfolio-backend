@@ -25,3 +25,13 @@ exports.addProject = async (req, res) => {
         res.status(400).json({ message: error.message || "Something went wrong" });
     }
 };
+
+exports.getAllProject = async (req, res) => {
+    try {
+        const result = await projectModel.find()
+        res.status(200).json({ message: "Project Fetch successfully", result })
+    } catch (error) {
+        res.status(400).json({ message: error.message || "something went wrong" })
+    }
+}
+
