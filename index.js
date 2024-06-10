@@ -4,7 +4,6 @@ require("dotenv").config({ path: "./.env" })
 const cors = require("cors")
 
 
-
 const app = express()
 app.use(cors({
     origin: "http://localhost:5173",
@@ -13,7 +12,6 @@ app.use(cors({
 app.use(express.json())
 // app.use(express.static(path.join(__dirname, "assets/projectImg")))
 app.use(express.static("assets/projectImg"))
-
 
 mongoose.connect(process.env.MONGO_URL)
 
