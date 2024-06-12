@@ -1,4 +1,4 @@
-const { addProject, getAllProject } = require("../controller/adminController")
+const { addProject, getAllProject, deleteProject } = require("../controller/adminController")
 const { addFeedback } = require("../controller/emailController")
 const { protected } = require("../middleware/protected")
 
@@ -11,6 +11,7 @@ protectedRoute
     .post('/addProject', addProject)
     .get('/getProject', getAllProject)
     .post("/add-feedback", addFeedback)
+    .delete("/deleteProject/:_id", deleteProject)
 
 
 

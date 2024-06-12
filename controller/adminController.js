@@ -1,5 +1,6 @@
 const projectModel = require("../model/projectModel");
 const { upload } = require("../utils/uploadImg");
+const mongoose = require('mongoose');
 
 exports.addProject = async (req, res) => {
     try {
@@ -34,4 +35,28 @@ exports.getAllProject = async (req, res) => {
         res.status(400).json({ message: error.message || "something went wrong" })
     }
 }
+
+
+exports.deleteProject = async (req, res) => {
+    try {
+        const { _id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(_id)) {
+            return res.status(400).json({ message: "Invalid project ID" });
+        }
+
+        console.log(_id);
+        const result = await projectModel.findOneAndDelete({ _id });
+
+        if (!result) {
+            return res.status(404).json({ message: "Project not found" });
+        }
+
+        res.status(200).json({ message: "User Project deleted successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: error.message || "Something went wrong" });
+    }
+}
+
 
