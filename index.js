@@ -11,7 +11,7 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-// app.use(express.static(path.join(__dirname, "assets/projectImg")))
+app.use(express.static(path.join(__dirname, "assets/projectImg")))
 app.use(express.static("assets/projectImg"))
 // app.use(express.static(path.join(__dirname, "dist")))
 
@@ -29,7 +29,6 @@ app.use("*", (req, res) => {
         message: "response not found"
     })
 })
-
 
 
 //mongo db connection 
