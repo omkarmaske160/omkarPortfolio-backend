@@ -12,7 +12,7 @@ const app = express()
 // }))
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://omkar-portfolio.onrender.com",
     credentials: true
 }))
 app.use(express.json())
