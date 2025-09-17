@@ -14,7 +14,7 @@ exports.protected = async (req, res) => {
         const result = defaultPassword === password;
 
         if (!result) {
-            return res.status(200).json({
+            return res.status(401).json({
                 message: "Password Incorrect"
             });
         }
