@@ -1,6 +1,6 @@
 const { addProject, getAllProject, deleteProject } = require("../controller/adminController")
 const { addFeedback } = require("../controller/emailController")
-const { protected } = require("../middleware/protected")
+const { protected } = require("../middleware/Protected")
 
 
 const protectedRoute = require("express").Router()
